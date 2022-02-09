@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+                margin: 0;
+            }
+            #page-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                height: auto;
+            }
+            #header {
+                position: absolute;
+                top: 0;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                height: 120px;
+                width: 100%;
+                background-color: rgb(49, 190, 143);
+                /* box-shadow: 0px 1px 0px 1px rgba(0, 0, 0, 0.5); */
+            }
+            #logo {
+                justify-self: center;
+                justify-content: center;
+            }
+            #navbar {
+                width: 40%;
+                /* background-color:; */
+            }
+            #nav-list-group {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                margin-right: 5%;
+            }
+            @media (max-width: 450px) {
+                #nav-list-group {
+                    display: flex;
+                    flex-direction: column;
+                    margin-right: 5px;
+                }
+            }
+            .nav-list {
+                display: flex;
+                height: 30px;
+                width: 85px;
+                border-radius: 15px;
+                background-color:azure;
+            }
+            .navlinks {
+                width: 100%;
+                font-family: Helvetica, sans-serif;
+                font-size: 12px;
+                text-decoration: none;
+                text-align: center;
+                align-self: center;
+                color: black;
+            }
+            #introduction {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: calc(100vh - 120px);
+                width: 100%;
+                margin-top: 120px;
+                overflow: hidden;
+            }
+            #slides-container {
+                display: flex;
+                flex-direction: row;
+                position: relative;
+                left: 100%;
+                width: 300%;
+                /* border: 2px solid red; */
+                animation: slide 20s ease-in infinite;
+            }
+            #intro-container {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 100%;
+                /* background-color: red; */
+            }
+            #prev, #next {
+                cursor: pointer;
+                position: absolute;
+                top: 50%;
+                width: auto;
+                margin-top: -22px;
+                padding: 16px;
+                color: azure;
+                font-weight: bold;
+                font-size: 18px;
+                transition: 0.6s ease;
+                border-radius: 0 3px 3px 0;
+            }
+            #next {
+                right: 0;
+                border-radius: 3px 0 0 3px;
+            }
+            #prev {
+                left: 0;
+            }
+            #prev input:checked + #slides-container {
+                animation: slide-to 20s ease-ine;
+            }
+            @keyframes slide-to {
+                0% {margin-left: 0;}
+                100% {margin-left: 100%;}
+            }
+            #prev:hover, #next:hover {
+                background-color: rgba(0,0,0,0.3);
+            }
+            .intro-text {
+                position: relative;
+                bottom: 50%;
+                width: 90%;
+                color:azure;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                font-size: 4em;
+                text-align: center;
+                margin: 10px;
+            }
+            .slide-img {
+                position: relative;
+                top: 140px;
+                bottom: 0px;
+                /* height: calc(100vh - 120px); */
+            }
+            .dot {
+                display: inline-block;
+                position: absolute;
+                bottom: 25px;
+                cursor: pointer;
+                height: 15px;
+                width: 15px;
+                margin: 0 2px;
+                background-color: azure;
+                border-radius: 50%;
+                transition: background-color 0.6s ease;
+            }            
+            @keyframes slide {
+                0% { margin-left: 0;}
+                27% {margin-left: 0;}
+                33% {margin-left: -200%;}
+                60% {margin-left: -200%;}
+                66% {margin-left: -400%;}
+                92% {margin-left: -400%;}
+                /* 99% {margin-left: -400%;} */
+                100% {margin-left: 0;}
+            } 
+            .section-titles {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            #the-problem {
+                display: grid;
+                grid-template-rows: 50px 90%;
+                gap: 5%;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                width: 100%;
+                background-color: azure;
+            }
+            #the-problem > .section-titles {
+                margin-top: 100px;
+                /* margin-bottom: 50px; */
+                justify-self: center;
+            }
+            #blur-overlay {
+                position: absolute;
+                top: calc(100vh + 10% + 50px);
+                left: 0;
+                display: grid;
+                grid-template-columns: 50% 50%;
+                grid-template-rows: 50% 50%;
+                gap: 0;
+                justify-self: center;
+                width: 100%;
+                height: calc(100vh - 10% - 50px);
+                /* border: 1px solid black; */
+            }
+            .quadrant-overlays {
+                /* border: 1px solid black; */
+                background-color: rgba(49, 190, 143, 0.30);
+                border: 1px solid rgba(240, 255, 255, 0.712);
+                backdrop-filter: blur(6px);
+                transition: backdrop-filter 0.6s ease;
+            }
+            .quadrant-overlays:hover {
+                backdrop-filter: blur(0px);
+            }
+            /* .quadrant-overlays: */
+            #the-problem-container {
+                display: grid;
+                grid-template-columns: 30% 40% 30%;
+                grid-template-areas: 
+                "left-side-container center-container right-side-container";
+                grid-gap: 0px;
+                justify-self: center;
+                justify-content: center;
+                align-content: center;
+                width: 90%;
+                height: auto;
+                padding: 0px;
+                margin-left: 50px;
+                margin-right: 50px;
+                /* border: 1px solid black; */
+            }
+            #left-side-container, #right-side-container {
+                display: grid;
+                grid-template-rows: 50% 50%;
+                width: 100%;
+                justify-self: center;
+            }
+            #left-side-container {
+                grid-area: "left-side-container";
+            }
+            #right-side-container {
+                grid-area: "right-side-container";
+            }
+            .description-containers {
+                display: flex;
+                flex-direction: column;
+                justify-items: center;
+                /* border: 1px solid rgb(126, 126, 126); */
+                margin: 0;
+                padding: 30px;
+            }
+            .description-titles {
+                text-align: center;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            .description-containers p {
+                text-align: justify;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            #center-container {
+                display: flex;
+                flex-direction: column;
+                align-self: center;
+                /* height: 100%; */
+                margin: 0;
+                /* border: 1px solid rgb(126, 126, 126); */
+            }
+            #approach {
+                display: grid;
+                grid-template-rows: 50px 90%;
+                gap: 5%;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                width: 100%;
+                background-color: rgba(181, 250, 227, 0.322);
+            }
+            #approach h2 {
+                margin-top: 100px;
+                justify-self: center;
+            }
+            #approach-container {
+                display: grid;
+                grid-template-columns: repeat(6, 150px);
+                gap: 30px;
+                margin: 0;
+                width: 100%;
+                align-content: center;
+                justify-content: center;
+                /* background-color: red; */
+            }
+            .workflow-elements:nth-child(odd) {
+                margin-top: -50px;
+            }
+            .workflow-elements:nth-child(even) {
+                margin-top: 50px;
+            }
+            .workflow-elements {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 120px;
+            }
+            .workflow-elements-description {
+                width: 100px;
+                text-align: center;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                font-size: 20px;
+            }
+            .workflow-icons {
+                margin: 0;
+            }
+            .v1 {
+                border-left: 2px solid rgba(136, 136, 136, 0.589);
+                height: 100px;
+                margin: 0;
+            }
+            #blog {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: calc(100vh - 100px);
+                width: 100%;
+                background-color: azure;
+            }
+            #blog-container {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                height: 80%;
+                width: 70%;
+            }
+            .blog-cards {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 25%;
+                height: auto;
+                padding: 10px;
+                max-width: 350px;
+                min-height: 250px;
+                /* border-radius: 10px; */
+                /* border: 1px solid #303030; */
+                text-align: center;
+                /* From https://css.glass */
+                background: rgba(255, 255, 255, 0.2);
+                border-radius: 16px;
+                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                backdrop-filter: blur(5px);
+                -webkit-backdrop-filter: blur(5px);
+                border: 1px solid rgba(255, 255, 255, 0.3);
+            }
+            .blog-titles {
+                text-align: center;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            .blog-snippet {
+                width: 80%;
+                text-align: left;
+            }
+            .more-button {
+                align-self: flex-end;
+                height: 1.8em;
+                width: 100px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                border-radius: 50px;
+                font-size: 13px;
+                font-weight: 400;
+                background-color: rgb(49, 190, 143);
+                border: none;
+                
+            }
+            #footer {
+                display: grid;
+                grid-template-columns: 20% 50% 20%;
+                align-items: center;
+                /* justify-items: flex-start; */
+                justify-content: space-between;
+                background-color: rgb(49, 190, 143);
+                width: 100%;
+                height: 100px;
+                margin: 0;
+            }
+            #copyright {
+                margin-left: 20px;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                color: black;
+            }
+            #footer-link-container {
+                display: flex;
+                flex-direction: row;
+                align-content: center;
+                justify-content: space-evenly;
+                padding: 5px;
+                border: 1px solid black;
+            }
+            .footer-links {
+                align-self: center;
+                width: 15%;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                color: #000;
+                font-size: 14px;
+                text-align: center;
+                text-decoration: none;
+            }
+            #socials-container {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div id="page-container">
+            <header id="header">
+                <div id="logo">
+                    <img id="logo-img" src="Sewob_logo-02.png" style="height:150px; width:150px" alt="SeWoB Logo">
+                </div>
+                <nav id="navbar">
+                    <ul id="nav-list-group">
+                        <div class="nav-list">
+                            <a href="#approach" id="approach-nav-link" class="navlinks">APPROACH</a>
+                        </div>
+                        <div class="nav-list">
+                            <a href="#blog" id="blog-nav-link" class="navlinks">BLOG</a>
+                        </div>
+                        <div class="nav-list">
+                            <a href="#" id="about-nav-link" class="navlinks">ABOUT</a>
+                        </div>
+                        <div class="nav-list">
+                            <a href="#footer" id="contact-nav-link" class="navlinks">CONTACT</a>
+                        </div>
+                    </ul>
+                </nav>
+            </header>
+            <section id="introduction">
+                <div id="slides-container">
+                    <div id="intro-container">
+                        <img src="./people-2557396.jpg" style="width:100%;" class="slide-img">
+                        <h1 id="intro-text-2" class="intro-text">"BRINGING SCIENTIFIC STATE-OF-THE-ART INTERVENTIONS TO SPATIAL WICKED PROBLEMS"</h1>
+                    </div>
+                    <div id="intro-container">
+                        <img src="./people-2557396.jpg" style="width:100%;" class="slide-img">
+                        <h1 id="intro-text-3" class="intro-text">"DANCIN AND GROOVING TO THE BEAT"</h1>
+                    </div>
+                    <div id="intro-container">
+                        <img src="./people-2557396.jpg" style="width:100%;" class="slide-img">
+                        <h1 id="intro-text-1" class="intro-text">"THE QUICK BROWN JUMPED OVER THE LAZY DOG"</h1>
+                    </div>
+                </div>
+                <div id="prev">
+                    <input type="checkbox" style="display: none;">
+                    <label id="prev-btn">&#10094</label>
+                </div>
+                <a id="next" onclick="plusSlide(1)">&#10095</a>
+                <div id="slide-dots">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </section>
+            <section id="the-problem">
+                <h2 class="section-titles">THE PROBLEM</h2>
+                <div id="blur-overlay">
+                    <div id="top-left-overlay" class="quadrant-overlays"></div>
+                    <div id="top-right-overlay" class="quadrant-overlays"></div>
+                    <div id="bottom-left-overlay" class="quadrant-overlays"></div>
+                    <div id="bottom-right-overlay" class="quadrant-overlays"></div>
+                </div>
+                <div id="the-problem-container">
+                    <div id="left-side-container">
+                        <div id="wickness-container" class="description-containers">
+                            <h3 class="description-titles">WICKEDNESS</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore, ad sunt. Neque impedit aliquam quidem consequuntur explicabo consequatur expedita ab eum, inventore eligendi reprehenderit? Esse animi eos cupiditate natus fugit!</p>
+                        </div>
+                        <div id="stakeholders-container" class="description-containers">
+                            <h3 class="description-titles">STAKEHOLDERS</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo repellat, vitae neque nemo quo consectetur? A praesentium eveniet aspernatur iure saepe facilis corporis officia, accusamus dolorem mollitia sint consequuntur molestiae!</p>
+                        </div>
+                    </div>
+                    <div id="center-container">
+                        <img id="globe-img" src="africa-1299545.svg">
+                    </div>
+                    <div id="right-side-container">
+                        <div id="spatial-container" class="description-containers">
+                            <h3 class="description-titles">SPATIAL</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo repellat, vitae neque nemo quo consectetur? A praesentium eveniet aspernatur iure saepe facilis corporis officia, accusamus dolorem mollitia sint consequuntur molestiae!</p>
+                        </div>
+                        <div id="uncertainty-container" class="description-containers">
+                            <h3 class="description-titles">UNCERTAINTY</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo repellat, vitae neque nemo quo consectetur? A praesentium eveniet aspernatur iure saepe facilis corporis officia, accusamus dolorem mollitia sint consequuntur molestiae!</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="approach">
+                <h2 class="section-titles">OUR APPROACH</h2>
+                <div id="approach-container">
+                    <div id="workflow-step-1" class="workflow-elements">
+                        <svg id="step-1-icon" class="workflow-icons"
+                                height="50px"
+                                viewBox="0 0 16 16"
+                                xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="8" cy="8" r="8" fill="rgb(49, 190, 143)"></circle>
+                        </svg>
+                        <div class="v1"></div>
+                        <p id="step-1-description" class="workflow-elements-description">Problem Identification</p>
+                    </div>
+                    <div id="workflow-step-2" class="workflow-elements">
+                        <p id="step-2-description" class="workflow-elements-description">Structuring</p>
+                        <div class="v1"></div>
+                        <svg id="step-2-icon" class="workflow-icons"
+                                height="50px"
+                                viewBox="0 0 16 16"
+                                xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="8" cy="8" r="8" fill="rgb(49, 190, 143)"></circle>
+                        </svg>
+                    </div>
+                    <div id="workflow-step-3" class="workflow-elements">
+                        <svg id="step-3-icon" class="workflow-icons"
+                                height="50px"
+                                viewBox="0 0 16 16"
+                                xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="8" cy="8" r="8" fill="rgb(49, 190, 143)"></circle>
+                        </svg>
+                        <div class="v1"></div>
+                        <p id="step-3-description" class="workflow-elements-description">Stakeholder analysis</p>
+                    </div>
+                    <div id="workflow-step-4" class="workflow-elements">
+                        <p id="step-4-description" class="workflow-elements-description">Mapping</p>
+                        <div class="v1"></div>
+                        <svg id="step-4-icon" class="workflow-icons"
+                                height="50px"
+                                viewBox="0 0 16 16"
+                                xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="8" cy="8" r="8" fill="rgb(49, 190, 143)"></circle>
+                        </svg>
+                    </div>
+                    <div id="workflow-step-5" class="workflow-elements">
+                        <svg id="step-5-icon" class="workflow-icons"
+                                height="50px"
+                                viewBox="0 0 16 16"
+                                xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="8" cy="8" r="8" fill="rgb(49, 190, 143)"></circle>
+                        </svg>
+                        <div class="v1"></div>
+                        <p id="step-5-description" class="workflow-elements-description">Ideation</p>
+                    </div>
+                    <div id="workflow-step-6" class="workflow-elements">
+                        <p id="step-6-description" class="workflow-elements-description">Proposal</p>
+                        <div class="v1"></div>
+                        <svg id="step-6-icon" class="workflow-icons"
+                                height="50px"
+                                viewBox="0 0 16 16"
+                                xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="8" cy="8" r="8" fill="rgb(49, 190, 143)"></circle>
+                        </svg>
+                    </div>
+                </div>
+            </section>
+            <section id="blog">
+                <h2 class="section-titles">BLOG</h2>
+                <div id="blog-container">
+                    <div class="blog-cards">
+                        <h3 class="blog-titles">Wicked Problems</h3>
+                        <p class="blog-snippet">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure, rem quo? Vel explicabo, repudiandae mollitia sint eveniet iste quis excepturi quas nulla a quasi, inventore amet, est omnis aliquam ad!</p>
+                        <button class="more-button">MORE</button>
+                    </div>
+                    <div class="blog-cards">
+                        <h3 class="blog-titles">Spatial data</h3>
+                        <p class="blog-snippet">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea praesentium qui rerum labore? Quod labore eaque nemo facilis aperiam maiores ab, adipisci voluptate ipsam porro harum natus, corporis, doloribus impedit.</p>
+                        <button class="more-button">MORE</button>
+                    </div>
+                    <div class="blog-cards">
+                        <h3 class="blog-titles">SMCE method</h3>
+                        <p class="blog-snippet">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident adipisci, aperiam vel iste fugit dolorum voluptatum illum laboriosam veritatis impedit rem sint fuga pariatur inventore deserunt distinctio velit quaerat assumenda.</p>
+                        <button class="more-button">MORE</button>
+                    </div>
+                </div>
+            </section>
+            <footer id="footer">
+                <p id="copyright">Copyright 2022, SeWoB</p>
+                <div id="footer-link-container">
+                    <a href="#" id="ts-and-cs" class="footer-links">Terms and Conditions</a>
+                    <a href="#" id="company-detail" class="footer-links">Company Details</a>
+                    <a href="#" id="privacy" class="footer-links">Privacy and Cookie Policy</a>
+                    <a href="#" id="cookies" class="footer-links">Cookie Settings</a>
+                </div>
+                <div id="socials-container">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="azure" class="bi bi-linkedin" viewBox="0 0 16 16">
+                        <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="azure" class="bi bi-facebook" viewBox="0 0 16 16">
+                        <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="azure" class="bi bi-twitter" viewBox="0 0 16 16">
+                        <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+                    </svg>
+                </div>
+            </footer>
+        </div>
+    </body>
+</html>
