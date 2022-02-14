@@ -3,15 +3,16 @@
 <html lang="en">
     <head>
         <link rel="stylesheet" href="index.css">
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta charset="utf-8">
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
         <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>SEWoB Homepage</title>
     </head>
     <body>
         <div class="page-container flex">
-            <div class="top-container container flex">
+            <div class="pg-top-container flex">
                 <header id="header" class="header bg-primary flex">
-                    <div id="menu" class="container menu hidden" onclick="menuFunction(this)">
+                    <div id="menu" class="ham-menu container hidden" onclick="menuFunction(this)">
                         <div class="bar1"></div>
                         <div class="bar2"></div>
                         <div class="bar3"></div>
@@ -25,61 +26,104 @@
                             element.parentElement.classList.toggle("change-header");
                         }
                     </script>
-                    <nav class="navbar flex">
-                        <div class="nav-list">
-                            <a href="#approach" id="approach-nav-link" class="navlinks txt-dark fs-200 ff-sans uppercase">APPROACH<span class="down-arrow">&#9013</span></a>
-                        </div>
-                        <div class="nav-list">
-                            <a href="#blog" id="blog-nav-link" class="navlinks txt-dark fs-200 ff-sans uppercase">BLOG<span class="down-arrow">&#9013</span></a>
-                        </div>
-                        <div class="nav-list">
-                            <a href="#" id="about-nav-link" class="navlinks txt-dark fs-200 ff-sans">ABOUT<span class="down-arrow">&#9013</span></a>
-                        </div>
-                        <div class="nav-list">
-                            <a href="#footer" id="contact-nav-link" class="navlinks txt-dark fs-200 ff-sans uppercase">CONTACT<span class="down-arrow">&#9013</span></a>
-                        </div>
+                    <nav>
+                        <ul class="navbar flex">
+                            <li>
+                                <div class="navlink-container">
+                                    <a href="#approach" id="approach-nav-link" class="navlinks txt-dark fs-200 ff-sans uppercase">APPROACH<span class="down-arrow">&#9013</span></a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="navlink-container">
+                                    <a href="#blog" id="blog-nav-link" class="navlinks txt-dark fs-200 ff-sans uppercase">BLOG<span class="down-arrow">&#9013</span></a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="navlink-container">
+                                    <a href="#" id="about-nav-link" class="navlinks txt-dark fs-200 ff-sans">ABOUT<span class="down-arrow">&#9013</span></a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="navlink-container">
+                                    <a href="#footer" id="contact-nav-link" class="navlinks txt-dark fs-200 ff-sans uppercase">CONTACT<span class="down-arrow">&#9013</span></a>
+                                </div>
+                            </li>
+                        </ul>
                     </nav>
                 </header>
                 <section id="introduction" class="introduction section flex">
                     <div id="slides-container" class="slides-container container flex">
-                        <div id="intro-container" class="intro-slide container">
+                        <div id="intro-slide-1" class="intro-slide container">
                             <!-- <img src="./people-2557396.jpg" style="width:100%;height:100%;" class="slide-img"> -->
                             <h1 id="intro-text-2" class="intro-text txt-second fs-700 ff-sans">"BRINGING SCIENTIFIC STATE-OF-THE-ART INTERVENTIONS TO SPATIAL WICKED PROBLEMS"</h1>
                         </div>
-                        <!-- <div id="intro-container" class="intro-slide container">
+                        <div id="intro-slide-2" class="intro-slide container">
                             <h1 id="intro-text-3" class="intro-text txt-second fs-700 ff-sans">"DANCIN AND GROOVING TO THE BEAT"</h1>
                         </div>
-                        <div id="intro-container" class="intro-slide container">
+                        <div id="intro-slide-3" class="intro-slide container">
                             <h1 id="intro-text-1" class="intro-text txt-second fs-700 ff-sans">"THE QUICK BROWN JUMPED OVER THE LAZY DOG"</h1>
-                        </div> -->
+                        </div>
                     </div>
-                    <div id="prev" class="prev container txt-second">
-                        <input type="checkbox" style="display: none;">
-                        <label id="prev-btn">&#10094</label>
+                    <div id="prev" class="prev button txt-second" onclick="plusSlides(-1)">&#10094</label>
                     </div>
-                    <a id="next"class="next button txt-second" onclick="plusSlide(1)">&#10095</a>
-                    <div class="slide-dots">
-                        <span class="dot bg-second"></span>
-                        <span class="dot bg-second"></span>
-                        <span class="dot bg-second"></span>
+                    <a id="next"class="next button txt-second" onclick="plusSlides(1)">&#10095</a>
+                    <div class="slide-dots-container">
+                        <span class="dot bg-second" onclick="currentSlide(1)"></span>
+                        <span class="dot bg-second" onclick="currentSlide(2)"></span>
+                        <span class="dot bg-second" onclick="currentSlide(3)"></span>
                     </div>
+                    <script>
+                        var slideIndex = 1;
+                        showSlides(slideIndex);
+                        
+                        function plusSlides(n) {
+                            showSlides(slideIndex += n);
+                        }
+                        
+                        function currentSlide(n) {
+                            showSlides(slideIndex = n);
+                        }
+                        
+                        function showSlides(n) {
+                            var i;
+                            var slides = document.getElementsByClassName("intro-slide");
+                            var dots = document.getElementsByClassName("dot");
+                            if (n > slides.length) {slideIndex = 1}    
+                            if (n < 1) {slideIndex = slides.length}
+                            for (i = 0; i < slides.length; i++) {
+                                slides[i].style.display = "none";
+                            }
+                            for (i = 0; i < dots.length; i++) {
+                                dots[i].className = dots[i].className.replace(" active", "");
+                            }
+                            slides[slideIndex-1].style = 
+                                `display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                                align-items: center;
+                                width: 100%;
+                                height: 100%;
+                                background-size: cover;`;  
+                            dots[slideIndex-1].className += " active";
+                        }
+                        </script>
                 </section>
             </div>
             <section id="the-problem" class="problem-section section grid bg-second fs-400 ff-sans">
                 <h2 class="section-titles">THE PROBLEM</h2>
-                <div id="blur-overlay" class="overlay-container container grid">
+                <!-- <div id="blur-overlay" class="overlay-container container grid">
                     <div id="top-left-overlay" class="quadrant-overlays bg-accent"></div>
                     <div id="top-right-overlay" class="quadrant-overlays bg-accent"></div>
                     <div id="bottom-left-overlay" class="quadrant-overlays bg-accent"></div>
                     <div id="bottom-right-overlay" class="quadrant-overlays bg-accent"></div>
-                </div>
+                </div> -->
                 <div id="the-problem-container" class="problem-content container grid">
                     <div id="left-side-container" class="left-side-container container grid">
-                        <div id="wickness-container" class="description-containers" class="container flex">
+                        <div id="wickness-container" class="description-containers container flex bg-accent">
                             <h3 class="description-titles fs-400 ff-sans">WICKEDNESS</h3>
                             <p class="fs-300 ff-sans">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore, ad sunt. Neque impedit aliquam quidem consequuntur explicabo consequatur expedita ab eum, inventore eligendi reprehenderit? Esse animi eos cupiditate natus fugit!</p>
                         </div>
-                        <div id="stakeholders-container" class="description-containers" class="container flex">
+                        <div id="stakeholders-container" class="description-containers container flex bg-second">
                             <h3 class="description-titles fs-400 ff-sans">STAKEHOLDERS</h3>
                             <p class="fs-300 ff-sans">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo repellat, vitae neque nemo quo consectetur? A praesentium eveniet aspernatur iure saepe facilis corporis officia, accusamus dolorem mollitia sint consequuntur molestiae!</p>
                         </div>
@@ -91,96 +135,172 @@
                         <img id="globe-img" src="africa-1299545.svg">
                     </div>
                     <div id="right-side-container" class="right-side-container container grid">
-                        <div id="spatial-container" class="description-containers" class="container flex">
+                        <div id="spatial-container" class="description-containers container flex bg-accent">
                             <h3 class="description-titles fs-400 ff-sans">SPATIAL</h3>
                             <p class="fs-300 ff-sans">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo repellat, vitae neque nemo quo consectetur? A praesentium eveniet aspernatur iure saepe facilis corporis officia, accusamus dolorem mollitia sint consequuntur molestiae!</p>
                         </div>
-                        <div id="uncertainty-container" class="description-containers" class="container flex">
+                        <div id="uncertainty-container" class="description-containers container flex bg-second">
                             <h3 class="description-titles fs-400 ff-sans">UNCERTAINTY</h3>
                             <p class="fs-300 ff-sans">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo repellat, vitae neque nemo quo consectetur? A praesentium eveniet aspernatur iure saepe facilis corporis officia, accusamus dolorem mollitia sint consequuntur molestiae!</p>
                         </div>
                     </div>
                 </div>
             </section>
-            <section id="approach" class="section grid  fs-400 ff-sans">
+            <section id="approach" class="approach-section section grid fs-400 ff-sans">
                 <h2 class="section-titles">OUR APPROACH</h2>
-                <div id="approach-container" class="container grid">
-                    <div id="workflow-step-1" class="workflow-elements flex">
-                        <svg id="step-1-icon" class="workflow-icons"
-                                height="50px"
-                                viewBox="0 0 16 16"
-                                xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="8" cy="8" r="8" fill="#00E689"></circle>
-                        </svg>
-                        <div class="v1"></div>
-                        <p id="step-1-description" class="workflow-elements-description ff-200 fs-sans">Problem Identification</p>
-                    </div>
-                    <div id="workflow-step-2" class="workflow-elements flex">
-                        <p id="step-2-description" class="workflow-elements-description ff-200 fs-sans">Structuring</p>
-                        <div class="v1"></div>
-                        <svg id="step-2-icon" class="workflow-icons"
-                                height="50px"
-                                viewBox="0 0 16 16"
-                                xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="8" cy="8" r="8" fill="#00E689"></circle>
-                        </svg>
-                    </div>
-                    <div id="workflow-step-3" class="workflow-elements flex">
-                        <svg id="step-3-icon" class="workflow-icons"
-                                height="50px"
-                                viewBox="0 0 16 16"
-                                xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="8" cy="8" r="8" fill="#00E689"></circle>
-                        </svg>
-                        <div class="v1"></div>
-                        <p id="step-3-description" class="workflow-elements-description ff-200 fs-sans">Stakeholder analysis</p>
-                    </div>
-                    <div id="workflow-step-4" class="workflow-elements flex">
-                        <p id="step-4-description" class="workflow-elements-description ff-200 fs-sans">Mapping</p>
-                        <div class="v1"></div>
-                        <svg id="step-4-icon" class="workflow-icons"
-                                height="50px"
-                                viewBox="0 0 16 16"
-                                xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="8" cy="8" r="8" fill="#00E689"></circle>
-                        </svg>
-                    </div>
-                    <div id="workflow-step-5" class="workflow-elements flex">
-                        <svg id="step-5-icon" class="workflow-icons"
-                                height="50px"
-                                viewBox="0 0 16 16"
-                                xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="8" cy="8" r="8" fill="#00E689"></circle>
-                        </svg>
-                        <div class="v1"></div>
-                        <p id="step-5-description" class="workflow-elements-description ff-200 fs-sans">Ideation</p>
-                    </div>
-                    <div id="workflow-step-6" class="workflow-elements flex">
-                        <p id="step-6-description" class="workflow-elements-description ff-200 fs-sans">Proposal</p>
-                        <div class="v1"></div>
-                        <svg id="step-6-icon" class="workflow-icons"
-                                height="50px"
-                                viewBox="0 0 16 16"
-                                xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="8" cy="8" r="8" fill="#00E689"></circle>
-                        </svg>
-                    </div>
+                <div id="approach-container" class="approach-container container grid">
+                    <ul class="hex-grid">                      
+                        <li class="hex-cell">
+                            <div class="cell-content">
+                                <a class="cell-link" href="#">
+                                <!-- <img src="https://farm5.staticflickr.com/4144/5053682635_b348b24698.jpg" alt="" /> -->
+                                    <div class="in-cell-container">
+                                        <svg class="workflow-icons" xmlns="http://www.w3.org/2000/svg" width="96px" height="96px" fill="#FFF" viewBox="0 0 16 16">
+                                            <circle cx="8" cy="8" r="4" fill="#FFF"></circle>
+                                        </svg>
+                                    </div>
+                                    <h1>This is a title 1</h1>
+                                    <p>Some sample text about the article this hexagon leads to</p>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="hex-cell">
+                            <div class="cell-content">
+                                <a class="cell-link" href="#">
+                                <!-- <img src="https://farm5.staticflickr.com/4144/5053682635_b348b24698.jpg" alt="" /> -->
+                                    <div class="empty-cell-container">
+                                        empty
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="hex-cell">
+                            <div class="cell-content">
+                                <a class="cell-link" href="#">
+                                <!-- <img src="https://farm5.staticflickr.com/4144/5053682635_b348b24698.jpg" alt="" /> -->
+                                    <div class="in-cell-container">
+                                        <svg class="workflow-icons" xmlns="http://www.w3.org/2000/svg" width="96px" height="96px" fill="#00E689" viewBox="0 0 16 16">
+                                            <circle cx="8" cy="8" r="4" fill="#00E689"></circle>
+                                        </svg>
+                                    </div>
+                                    <h1>This is a title</h1>
+                                    <p>Some sample text about the article this hexagon leads to</p>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="hex-cell">
+                            <div class="cell-content">
+                                <a class="cell-link" href="#">
+                                <!-- <img src="https://farm5.staticflickr.com/4144/5053682635_b348b24698.jpg" alt="" /> -->
+                                <div class="in-cell-container">
+                                    <svg class="workflow-icons" xmlns="http://www.w3.org/2000/svg" width="96px" height="96px" fill="#00E689" viewBox="0 0 16 16">
+                                        <circle cx="8" cy="8" r="4" fill="#00E689"></circle>
+                                    </svg>
+                                </div>
+                                <h1>This is a title</h1>
+                                <p>Some sample text about the article this hexagon leads to</p>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="hex-cell">
+                            <div class="cell-content">
+                                <a class="cell-link" href="#">
+                                <!-- <img src="https://farm5.staticflickr.com/4144/5053682635_b348b24698.jpg" alt="" /> -->
+                                <div class="in-cell-container">
+                                    <svg class="workflow-icons" xmlns="http://www.w3.org/2000/svg" width="96px" height="96px" fill="#00E689" viewBox="0 0 16 16">
+                                        <circle cx="8" cy="8" r="4" fill="#00E689"></circle>
+                                    </svg>
+                                </div>
+                                <h1>This is a title</h1>
+                                <p>Some sample text about the article this hexagon leads to</p>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="hex-cell">
+                            <div class="cell-content">
+                                <a class="cell-link" href="#">
+                                <!-- <img src="https://farm5.staticflickr.com/4144/5053682635_b348b24698.jpg" alt="" /> -->
+                                <div class="in-cell-container">
+                                    <svg class="workflow-icons" xmlns="http://www.w3.org/2000/svg" width="96px" height="96px" fill="#00E689" viewBox="0 0 16 16">
+                                        <circle cx="8" cy="8" r="4" fill="#00E689"></circle>
+                                    </svg>
+                                </div>
+                                <h1>This is a title 2</h1>
+                                <p>Some sample text about the article this hexagon leads to</p>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="hex-cell">
+                            <div class="cell-content">
+                                <a class="cell-link" href="#">
+                                <!-- <img src="https://farm5.staticflickr.com/4144/5053682635_b348b24698.jpg" alt="" /> -->
+                                <div class="in-cell-container">
+                                    <svg class="workflow-icons" xmlns="http://www.w3.org/2000/svg" width="96px" height="96px" fill="#00E689" viewBox="0 0 16 16">
+                                        <circle cx="8" cy="8" r="4" fill="#00E689"></circle>
+                                    </svg>
+                                </div>
+                                <h1>This is a title</h1>
+                                <p>Some sample text about the article this hexagon leads to</p>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="hex-cell">
+                            <div class="cell-content">
+                                <a class="cell-link" href="#">
+                                <!-- <img src="https://farm5.staticflickr.com/4144/5053682635_b348b24698.jpg" alt="" /> -->
+                                    <div class="empty-cell-container">
+                                        empty
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="hex-cell">
+                            <div class="cell-content">
+                                <a class="cell-link" href="#">
+                                <!-- <img src="https://farm5.staticflickr.com/4144/5053682635_b348b24698.jpg" alt="" /> -->
+                                    <div class="empty-cell-container">
+                                        empty
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="hex-cell">
+                            <div class="cell-content">
+                                <a class="cell-link" href="#">
+                                <!-- <img src="https://farm5.staticflickr.com/4144/5053682635_b348b24698.jpg" alt="" /> -->
+                                    <div class="empty-cell-container">
+                                        empty
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="hex-cell">
+                            <div class="cell-content">
+                                <a class="cell-link" href="#">
+                                <!-- <img src="https://farm5.staticflickr.com/4144/5053682635_b348b24698.jpg" alt="" /> -->
+                                    <div class="empty-cell-container">
+                                        empty
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </section>
-            <section id="blog" class="section flex bg-accent  fs-400 ff-sans">
+            <section id="blog" class="blog-section section grid bg-accent  fs-400 ff-sans">
                 <h2 class="section-titles">BLOG</h2>
-                <div id="blog-container" class="container flex">
-                    <div class="blog-cards" class="container flex">
+                <div id="blog-container" class="blog-cards-container container flex">
+                    <div class="blog-cards container flex">
                         <h3 class="blog-titles txt-dark fs-400 ff-sans">Wicked Problems</h3>
                         <p class="blog-snippet txt-dark fs-300 ff-sans">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure, rem quo? Vel explicabo, repudiandae mollitia sint eveniet iste quis excepturi quas nulla a quasi, inventore amet, est omnis aliquam ad!</p>
                         <button class="more-button bg-primary fs-200 ff-sans">MORE</button>
                     </div>
-                    <div class="blog-cards" class="container flex">
+                    <div class="blog-cards container flex">
                         <h3 class="blog-titles txt-dark fs-400 ff-sans">Spatial data</h3>
                         <p class="blog-snippet txt-dark fs-300 ff-sans">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea praesentium qui rerum labore? Quod labore eaque nemo facilis aperiam maiores ab, adipisci voluptate ipsam porro harum natus, corporis, doloribus impedit.</p>
                         <button class="more-button bg-primary fs-200 ff-sans">MORE</button>
                     </div>
-                    <div class="blog-cards" class="container flex">
+                    <div class="blog-cards container flex">
                         <h3 class="blog-titles txt-dark fs-400 ff-sans">SMCE method</h3>
                         <p class="blog-snippet txt-dark fs-300 ff-sans">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident adipisci, aperiam vel iste fugit dolorum voluptatum illum laboriosam veritatis impedit rem sint fuga pariatur inventore deserunt distinctio velit quaerat assumenda.</p>
                         <button class="more-button bg-primary fs-200 ff-sans">MORE</button>
