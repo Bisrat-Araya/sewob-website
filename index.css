@@ -692,14 +692,16 @@ a {
     /* display: flex; */
     flex-direction: column;
     align-self: center;
+    justify-self: center;
     justify-content: center;
+    align-items: center;
     grid-area: globe;
     margin: 0;
     /* border: 1px solid rgb(126, 126, 126); */
-    height: 80%;
+    /* height: 80%; */
     aspect-ratio: 1;
-    width: 100%;
-    clip-path: circle(55%);
+    width: 500px;
+    clip-path: circle(249px);
     z-index: 1;
 }
 
