@@ -6,9 +6,13 @@
         <meta charset="utf-8">
         <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
         <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato%3A400%2C300italic%2C300%2C700%7CPoppins%3A600&ver=5.8.3" />
         <title>SEWoB Homepage</title>
     </head>
     <body>
+        <canvas></canvas>
+        <script src="canvas.js"></script>
         <div class="page-container flex">
             <div class="pg-top-container flex">
                 <header id="header" class="header bg-primary flex">
@@ -17,7 +21,7 @@
                         <div class="bar2"></div>
                         <div class="bar3"></div>
                     </div>
-                    <div id="logo">
+                    <a id="logo" href="./">
                         <!-- <img id="logo-img" class="img" src="Sewob_logo-02.png" style="height:100px; width:100px" alt="SeWoB Logo"> -->
                         <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
                             width="100px" height="100px" viewBox="0 0 1168.000000 1139.000000"
@@ -58,7 +62,8 @@
                             26 149 27 199 1z"/>
                             </g>
                         </svg>
-                    </div>
+                        <!-- <h1 class="txt-second">SEWoB</h1> -->
+                    </a>
                     <script>
                         function menuFunction(element) {
                             element.classList.toggle("change");
@@ -69,22 +74,42 @@
                         <ul class="navbar flex">
                             <li>
                                 <div class="navlink-container">
-                                    <a href="#approach" id="approach-nav-link" class="navlinks txt-second fs-200 ff-sans uppercase">APPROACH<span class="down-arrow">&#9013</span></a>
+                                    <a href="#approach" id="approach-nav-link" class="navlinks txt-second fs-200 ff-sans uppercase">
+                                        APPROACH
+                                        <!-- <span class="down-arrow">&#9013</span> -->
+                                    </a>
                                 </div>
                             </li>
                             <li>
                                 <div class="navlink-container">
-                                    <a href="#blog" id="blog-nav-link" class="navlinks txt-second fs-200 ff-sans uppercase">BLOG<span class="down-arrow">&#9013</span></a>
+                                    <a href="#projects" id="project-nav-link" class="navlinks txt-second fs-200 ff-sans uppercase">
+                                        PROJECTS
+                                        <!-- <span class="down-arrow">&#9013</span> -->
+                                    </a>
                                 </div>
                             </li>
                             <li>
                                 <div class="navlink-container">
-                                    <a href="#" id="about-nav-link" class="navlinks txt-second fs-200 ff-sans">ABOUT<span class="down-arrow">&#9013</span></a>
+                                    <a href="#blog" id="blog-nav-link" class="navlinks txt-second fs-200 ff-sans uppercase">
+                                        BLOG
+                                        <!-- <span class="down-arrow">&#9013</span> -->
+                                    </a>
                                 </div>
                             </li>
                             <li>
                                 <div class="navlink-container">
-                                    <a href="#footer" id="contact-nav-link" class="navlinks txt-second fs-200 ff-sans uppercase">CONTACT<span class="down-arrow">&#9013</span></a>
+                                    <a href="./about/" id="about-nav-link" class="navlinks txt-second fs-200 ff-sans">
+                                        ABOUT
+                                        <!-- <span class="down-arrow">&#9013</span> -->
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="navlink-container">
+                                    <a href="#footer" id="contact-nav-link" class="navlinks txt-second fs-200 ff-sans uppercase">
+                                        CONTACT
+                                        <!-- <span class="down-arrow">&#9013</span> -->
+                                    </a>
                                 </div>
                             </li>
                         </ul>
@@ -94,13 +119,13 @@
                     <div id="slides-container" class="slides-container container flex">
                         <div id="intro-slide-1" class="intro-slide container">
                             <!-- <img src="./people-2557396.jpg" style="width:100%;height:100%;" class="slide-img"> -->
-                            <h1 id="intro-text-2" class="intro-text txt-second fs-700 ff-sans uppercase">"We are Spatial Engineers with a unique approach to address the wicked problems of our world."</h1>
+                            <h1 id="intro-text-2" class="intro-text txt-second fs-700 ff-sans uppercase">We are Spatial Engineers with a unique approach to address the wicked problems of our world.</h1>
                         </div>
                         <div id="intro-slide-2" class="intro-slide container">
-                            <h1 id="intro-text-3" class="intro-text txt-second fs-700 ff-sans uppercase">"Embracing Empathic Engineering to design human-centered interventions for societal challenges"</h1>
+                            <h1 id="intro-text-3" class="intro-text txt-second fs-700 ff-sans uppercase">Embracing Empathic Engineering to design human-centered interventions for societal challenges</h1>
                         </div>
                         <div id="intro-slide-3" class="intro-slide container">
-                            <h1 id="intro-text-1" class="intro-text txt-second fs-700 ff-sans uppercase">"leveraging scientific state-of-the-art in Geo-spatial technologies"</h1>
+                            <h1 id="intro-text-1" class="intro-text txt-second fs-700 ff-sans uppercase">leveraging scientific state-of-the-art in Geo-spatial technologies</h1>
                         </div>
                     </div>
                     <div id="prev" class="prev button txt-second" onclick="plusSlides(-1)">&#10094</label>
@@ -148,113 +173,139 @@
                         </script>
                 </section>
             </div>
-            <section id="the-problem" class="problem-section section grid bg-second fs-400 ff-sans">
+            <section id="our-focus" class="focus-section section grid bg-second fs-400 ff-sans">
                 <h2 class="section-titles txt-dark">OUR FOCUS</h2>
-                <div id="the-problem-container" class="problem-content container grid">
-                    <div id="left-side-container" class="left-side-container container grid">
-                        <div id="wickedness-container" class="description-containers container flex bg-accent">
-                            <h3 class="description-titles fs-400 ff-sans">WICKEDNESS</h3>
-                            <p class="fs-300 ff-sans">Wicked problems are complex, contemporary problems that do not have a conclusive solution and require multidisciplinary thinking. They are intrinsically characterized by uncertainty and involve several stakeholders resulting in a challenge to achieve consensus.</p>
-                        </div>
-                        <div id="stakeholders-container" class="description-containers container flex">
-                            <h3 class="description-titles fs-400 ff-sans">STAKEHOLDERS</h3>
-                            <p class="fs-300 ff-sans">Achieving consensus among stakeholders is vital in addressing wicked problems. It ensures the sustainability and adoption of the designed intervention in the long run. The challenge lies in addressing the various values and interests of the numerous stakeholders affected by these problems.</p>
-                        </div>
+                <div id="our-focus-container" class="focus-content container grid">
+                    <div id="wickedness-container" class="description-containers container flex">
+                        <h3 class="description-titles fs-400 ff-sans">WICKEDNESS</h3>
+                        <p class="fs-300 ff-sans">Wicked problems are complex, contemporary problems that do not have a conclusive solution and require multidisciplinary thinking. They are intrinsically characterized by uncertainty and involve several stakeholders resulting in a challenge to achieve consensus.</p>
+                    </div>
+                    <div id="stakeholders-container" class="description-containers container flex">
+                        <h3 class="description-titles fs-400 ff-sans">STAKEHOLDERS</h3>
+                        <p class="fs-300 ff-sans">Achieving consensus among stakeholders is vital in addressing wicked problems. It ensures the sustainability and adoption of the designed intervention in the long run. The challenge lies in addressing the various values and interests of the numerous stakeholders affected by these problems.</p>
                     </div>
                     <div id="center-container" class="center-container container flex">
-                        <img id="globe-img" src="africa-1299545.svg">
+                        <video id="globe-img" autoplay loop muted width="100%">
+                            <source src="./images/earth.mp4" type="video/mp4">
+                        </video>
                     </div>
                     <div id="center-container-dup" class="center-container-dup flex">
-                        <img id="globe-img" src="africa-1299545.svg">
+                        <!-- <img id="globe-img" src="africa-1299545.svg"> -->
+                        <video id="globe-img" autoplay loop muted width="100%">
+                            <source src="./images/earth.mp4" type="video/mp4">
+                        </video>
                     </div>
-                    <div id="right-side-container" class="right-side-container container grid">
-                        <div id="spatial-container" class="description-containers container flex bg-accent">
-                            <h3 class="description-titles fs-400 ff-sans">SPATIAL</h3>
-                            <p class="fs-300 ff-sans">The majority of data that can be used to make well-informed decisions are location bound. Towards this end, spatial awareness bears significance in understanding where and how wicked problems occur. The clues to understand these complexiities can be unearthed through geospatial insights.</p>
-                        </div>
-                        <div id="uncertainty-container" class="description-containers container flex bg-second">
-                            <h3 class="description-titles fs-400 ff-sans">UNCERTAINTY</h3>
-                            <p class="fs-300 ff-sans">Uncertainty is a trait of a wicked problem that arises from a poor understanding and gap in knowledge regarding current facts and desired future scenarios. It fogs the path to sustainable solutions for such problems.</p>
-                        </div>
+                    <div id="spatial-container" class="description-containers container flex">
+                        <h3 class="description-titles fs-400 ff-sans">SPATIAL</h3>
+                        <p class="fs-300 ff-sans">The majority of data that can be used to make well-informed decisions are location bound. Towards this end, spatial awareness bears significance in understanding where and how wicked problems occur. The clues to understand these complexiities can be unearthed through geospatial insights.</p>
+                    </div>
+                    <div id="uncertainty-container" class="description-containers container flex">
+                        <h3 class="description-titles fs-400 ff-sans">UNCERTAINTY</h3>
+                        <p class="fs-300 ff-sans">Uncertainty is a trait of a wicked problem that arises from a poor understanding and gap in knowledge regarding current facts and desired future scenarios. It fogs the path to sustainable solutions for such problems.</p>
                     </div>
                 </div>
             </section>
-            <section id="approach" class="approach-section grid">
+            <section id="approach" class="approach-section bg-second grid">
                 <h2 class="section-titles txt-second">OUR APPROACH</h2>
                 <div class="approach-container">
-                    <div id="workflow-step-1" class="wf-elem">
-                        <svg id="step-1-icon" class="workflow-icons"
-                                height="70px"
-                                viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="10" cy="10" r="8" fill="white" stroke-width="1.5px" stroke="hsl(204, 100%, 50%)"></circle>
-                            <g transform="matrix(1,0,0,1,2,2)">
-                                <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+                    <div class="cell">
+                        <svg class="connector" width="100" height="100" viewBox="0 0 105 105">
+                            <g transform="matrix(1,0,0,1,2.5,2.5)">
+                                <polyline points="80, 100 20, 100" stroke="green" fill="transparent" stroke-width="5"/>
                             </g>
                         </svg>
-                        <div class="v1"></div>
-                        <h3 id="step-1-description" class="wf-elem-name">Problem Identification</h3>
-                        <div class="divider"></div>
-                        <p class="wf-elem-desc">
-                            “Conflict of interest” is often a cause of what makes a problem wicked. The key is to define the problem and set pragmatic objectives.
-                        </p>
                     </div>
-                    <div id="workflow-step-2" class="wf-elem">
-                        <h3 id="step-2-description" class="wf-elem-name">Structuring</h3>
-                        <div class="divider"></div>
-                        <p class="wf-elem-desc">Visualizing and analyzing systems through conceptual diagrams and various tools at our disposal</p>
-                        <div class="v1"></div>
-                        <svg id="step-1-icon" class="workflow-icons"
-                                height="70px"
-                                viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="10" cy="10" r="8" fill="white" stroke-width="1.5px" stroke="hsl(204, 100%, 50%)"></circle>
-                            <g transform="matrix(.008,0,0,-.008,10,10)">
+                    <div class="cell">
+                        <h3 class="cell-title">Problem Identification</h3>
+                        <svg width="100" height="100" viewBox="0 0 105 105">
+                            <g class="hex-border" transform="matrix(1,0,0,1,2.5,2.5)">
+                                <polygon points="0, 50 20, 0 80, 0 100, 50 80, 100 20, 100 0, 50" stroke="green" fill="transparent" stroke-width="5"/>
+                            </g>
+                            <g  class="prob-iden-icon" transform="matrix(4,0,0,4,20,20)">
+                                <path stroke-width="0" d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+                            </g>
+                        </svg>
+                        <div class="cell-arrow"></div>
+                        <p class="cell-description">“Conflict of interest” is often a cause of what makes a problem wicked. The key is to define the problem and set pragmatic objectives.</p>
+                    </div>
+                    <div class="cell">
+                        <svg class="connector" width="100" height="100" viewBox="0 0 105 105">
+                            <g transform="matrix(1,0,0,1,2.5,2.5)">
+                                <polyline points="80, 100 20, 100 0, 50" stroke="green" fill="transparent" stroke-width="5"/>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="cell">
+                        <h3 class="cell-title">Structuring</h3>
+                        <div class="cell-arrow"></div>
+                        <p class="cell-description">Visualizing and analyzing systems through conceptual diagrams and various tools at our disposal</p>
+                        <svg class="structuring-icon" width="100" height="100" viewBox="0 0 105 105">
+                            <g class="hex-border" transform="matrix(1,0,0,1,2.5,2.5)">
+                                <polygon points="0, 50 20, 0 80, 0 100, 50 80, 100 20, 100 0, 50" stroke="green" fill="transparent" stroke-width="5"/>
+                            </g>
+                            <g transform="matrix(.04,0,0,-.04,52,55)">
                                 <path d="m-471.01-529.81c-65.253 0-126.4 31.832-163.83 85.284-91.224 130.28-140.16 285.48-140.16 444.52 0 428.02 346.98 775 775 775s775-346.98 775-775c0-91.55-16.221-182.38-47.911-268.27-57.985-157.16-207.76-261.54-375.27-261.54z" fill="none"/>
                                 <path d="m351.82-129.81c15.334 41.56 23.183 85.508 23.183 129.81 0 207.11-167.89 375-375 375s-375-167.89-375-375c0-76.957 23.677-152.05 67.818-215.09 23.542-33.621 36.17-73.671 36.17-114.72 0-110.46-89.543-200-200-200-65.253 0-126.4 31.832-163.83 85.284-91.224 130.28-140.16 285.48-140.16 444.52 0 428.02 346.98 775 775 775s775-346.98 775-775c0-91.55-16.221-182.38-47.911-268.27-57.985-157.16-207.76-261.54-375.27-261.54-155.77 0-297.37 90.43-362.89 231.75-19.439 41.878-75.56 137.34-112.39 174.04-32.986 32.84-51.529 77.469-51.529 124.02 0 96.65 78.35 175 175 175s175-78.35 175-175c0-20.672-3.663-41.181-10.819-60.576-8.178-22.166-12.364-45.605-12.364-69.23 0-110.46 89.543-200 200-200 83.757 0 158.64 52.19 187.64 130.77 23.512 63.725 35.547 131.11 35.547 199.04 0 317.56-257.44 575-575 575s-575-257.44-575-575c0-118 36.305-233.15 103.99-329.81" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="100"/>
                             </g>
                         </svg>
                     </div>
-                    <div id="workflow-step-3" class="wf-elem">
-                        <svg id="step-1-icon" class="workflow-icons"
-                                height="70px"
-                                viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="10" cy="10" r="8" fill="white" stroke-width="1.5px" stroke="hsl(204, 100%, 50%)"></circle>
-                            <g transform="matrix(0.6,0,0,0.6,5,5)">
+                    <div class="cell">
+                        <svg class="connector" width="100" height="100" viewBox="0 0 105 105">
+                            <g transform="matrix(1,0,0,1,2.5,2.5)">
+                                <polyline points="0, 50 20, 0 80, 0" stroke="green" fill="transparent" stroke-width="5"/>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="cell">
+                        <h3 class="cell-title">Stakeholder Analysis</h3>
+                        <svg width="100" height="100" viewBox="0 0 105 105">
+                            <g class="hex-border" transform="matrix(1,0,0,1,2.5,2.5)">
+                                <polygon points="0, 50 20, 0 80, 0 100, 50 80, 100 20, 100 0, 50" stroke="green" fill="transparent" stroke-width="5"/>
+                            </g>
+                            <g class="stakeholder-icon" stroke-width="0" transform="matrix(3,0,0,3,28,25)">
                                 <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
                                 <path fill-rule="evenodd" d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z"/>
                                 <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
                             </g>
                         </svg>
-                        <div class="v1"></div>
-                        <h3 id="step-3-description" class="wf-elem-name">Stakeholder analysis</h3>
-                        <div class="divider"></div>
-                        <p class="wf-elem-desc">Identify every party’s interests and needs, and map relationships between different actors</p>
+                        <div class="cell-arrow"></div>
+                        <p class="cell-description">Identify every party’s interests and needs, and map relationships between different actors</p>
                     </div>
-                    <div id="workflow-step-4" class="wf-elem">
-                        <h3 id="step-4-description" class="wf-elem-name">Geospatial analysis</h3>
-                        <div class="divider"></div>
-                        <p class="wf-elem-desc">Utilizing Remote sensing, GIS, as well as other Geospatial and Data Science technologies, to gain valuable insights</p>
-                        <div class="v1"></div>
-                        <svg id="step-1-icon" class="workflow-icons"
-                                height="70px"
-                                viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="10" cy="10" r="8" fill="white" stroke-width="1.5px" stroke="hsl(204, 100%, 50%)"></circle>
-                            <g transform="matrix(0.05,0,0,0.05,4.5,3)">
+                    <div class="cell">
+                        <svg class="connector" width="100" height="100" viewBox="0 0 105 105">
+                            <g transform="matrix(1,0,0,1,2.5,2.5)">
+                                <polyline points="80, 100 20, 100 0, 50" stroke="green" fill="transparent" stroke-width="5"/>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="cell">
+                        <h3 class="cell-title">Geospatial Analysis</h3>
+                        <div class="cell-arrow"></div>
+                        <p class="cell-description">Utilizing Remote sensing, GIS, as well as other Geospatial and Data Science technologies, to gain valuable insights</p>
+                        <svg class="geosp-icon" width="100" height="100" viewBox="0 0 105 105">
+                            <g class="hex-border" transform="matrix(1,0,0,1,2.5,2.5)">
+                                <polygon points="0, 50 20, 0 80, 0 100, 50 80, 100 20, 100 0, 50" stroke="green" fill="transparent" stroke-width="5"/>
+                            </g>
+                            <g transform="matrix(0.25,0,0,0.25,24,15)">
                                 <path style="fill:#000000;stroke-width:0.19395369"
                                     d="m 65.367107,232.64681 c -23.759336,-12.3058 -43.269077,-22.44297 -43.35498,-22.52703 -0.14506,-0.14192 28.655127,-15.18289 29.085254,-15.18983 0.107024,-0.001 13.112872,6.68143 28.90188,14.85145 15.789008,8.17003 28.773329,14.85461 28.854029,14.85461 0.0807,0 13.06695,-6.68448 28.85832,-14.8544 15.79136,-8.16992 28.79893,-14.85309 28.90572,-14.85147 0.42921,0.007 29.22985,15.04772 29.0848,15.18963 -0.28437,0.27821 -86.701,44.93623 -86.92079,44.91855 -0.11848,-0.009 -19.654897,-10.08571 -43.414233,-22.39151 z m 0.03795,-45.20104 C 41.559829,175.10054 22.047632,164.92536 22.044633,164.83426 c -0.0041,-0.1369 11.321051,-6.07066 26.055802,-13.65133 l 3.022231,-1.55487 28.866072,14.93895 28.866062,14.93895 28.84576,-14.9267 c 15.86516,-8.20969 28.87181,-14.9267 28.90368,-14.9267 0.12707,0 28.95229,14.95602 29.09683,15.09697 0.11823,0.11524 -86.62973,45.19528 -86.88563,45.15159 -0.0305,-0.005 -19.565148,-10.11011 -43.41038,-22.45535 z m -0.180581,-45.30449 c -23.837764,-12.33319 -43.341418,-22.46757 -43.34145,-22.52085 -3.3e-5,-0.0772 56.518374,-29.393318 57.076745,-29.605736 0.08384,-0.0319 1.007457,1.49393 2.052481,3.390724 1.804176,3.274688 6.390675,11.174672 7.147445,12.311062 0.282545,0.42427 0.300576,0.54957 0.0898,0.62407 -0.145051,0.0513 -0.918982,0.32219 -1.719866,0.60206 -2.132191,0.7451 -5.504774,2.40937 -7.265107,3.58511 -4.369295,2.91829 -6.623577,6.80633 -5.975146,10.30559 0.709041,3.82632 4.006654,7.22135 9.648446,9.93348 14.068838,6.76318 37.868046,6.76108 51.838566,-0.004 5.75729,-2.78815 8.92635,-6.06071 9.65489,-9.97026 0.28743,-1.54243 -0.007,-3.14177 -0.91887,-4.98654 -1.64284,-3.32459 -6.36054,-6.71355 -12.34728,-8.86968 -1.00376,-0.3615 -1.81036,-0.72878 -1.79246,-0.81618 0.0179,-0.0874 1.07242,-1.90271 2.34339,-4.03402 1.27097,-2.131311 3.34217,-5.731562 4.60265,-8.000555 1.26049,-2.268994 2.35847,-4.099985 2.43997,-4.06887 0.56012,0.21385 57.07254,29.527635 57.07251,29.604315 -5e-5,0.159 -86.68765,44.9516 -86.98849,44.94808 -0.15226,-0.001 -19.780448,-10.09403 -43.618221,-22.42722 z m 39.995634,-28.1882 C 89.891601,90.735356 79.674918,70.987942 77.177145,59.749919 c -0.383843,-1.726968 -0.449768,-2.546878 -0.436189,-5.42516 0.01717,-3.64472 0.324959,-5.659755 1.367478,-8.953173 3.736448,-11.803825 14.063268,-20.505487 26.383836,-22.231755 1.96069,-0.274721 6.73022,-0.281948 8.63618,-0.0131 12.25742,1.729061 22.42041,10.128617 26.29537,21.732723 1.19121,3.567212 1.53142,5.645527 1.54943,9.465295 0.019,4.012364 -0.27403,5.620389 -1.92384,10.559684 -3.27091,9.792699 -10.28049,23.292567 -21.0263,40.494937 -3.19982,5.1224 -8.97723,13.85353 -9.16692,13.85353 -0.0827,0 -1.7189,-2.37593 -3.63608,-5.27984 z m 5.96682,-46.148408 c 4.77101,-0.862444 8.55531,-4.197285 10.12976,-8.926654 0.38037,-1.142558 0.4512,-1.75322 0.44954,-3.875114 -0.002,-2.318475 -0.0495,-2.651636 -0.59902,-4.188562 -1.40431,-3.92748 -4.50508,-6.969446 -8.33,-8.172018 -1.12109,-0.352478 -1.81798,-0.427295 -3.98011,-0.427295 -2.16212,0 -2.85901,0.07482 -3.98011,0.427295 -2.69842,0.848399 -5.25032,2.778718 -6.871689,5.197919 -3.248932,4.847641 -2.757801,11.585253 1.155138,15.846825 3.186541,3.470446 7.478141,4.939794 12.026491,4.117604 z">
                             </g>
                         </svg>
                     </div>
-                    <div id="workflow-step-5" class="wf-elem">
-                        <svg id="step-1-icon" class="workflow-icons"
-                                height="70px"
-                                viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="10" cy="10" r="8" fill="white" stroke-width="1.5px" stroke="hsl(204, 100%, 50%)"></circle>
-                            <g transform="matrix(0.016,0,0,0.016,4,2)">
+                    <div class="cell">
+                        <svg class="connector" width="100" height="100" viewBox="0 0 105 105">
+                            <g transform="matrix(1,0,0,1,2.5,2.5)">
+                                <polyline points="0, 50 20, 0 80, 0" stroke="green" fill="transparent" stroke-width="5"/>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="cell">
+                        <h3 class="cell-title">Ideation</h3>
+                        <svg class="idea-icon" width="100" height="100" viewBox="0 0 105 105">
+                            <g class="hex-border" transform="matrix(1,0,0,1,2.5,2.5)">
+                                <polygon points="0, 50 20, 0 80, 0 100, 50 80, 100 20, 100 0, 50" stroke="green" fill="transparent" stroke-width="5"/>
+                            </g>
+                            <g transform="matrix(0.07,0,0,0.07,25,15)">
                                 <path d="m440.79 671.11c42.417-17.557 135.95-74.046 136.4-189.55 0.4584-116.16-104.05-203.53-210.66-200.81-104.97 2.7194-217.69 66.193-218.48 200.37-0.79212 133.52 121.3 198.69 312.46 244.17 114.33 27.804-276.1 24.686-230 37.904 56.843 16.301 319.52 31.547 240.4 49.997-76.091 17.742-198.01 8.9014-241.7 30.538-39.182 19.405 426.59 17.44 189.69 60.571" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="38.849"/>
                                 <path d="m281.49 443.66c49.678 21.428 89.402 54.291 166.5-6.796" fill="none" stroke="#000" stroke-linecap="round" stroke-width="38.301"/>
                                 <path d="m85.51 279.7 47.642 52.503" fill="none" stroke="#000" stroke-linecap="round" stroke-width="38.242"/>
@@ -264,25 +315,72 @@
                                 <path d="m667.91 247.62-55.42 43.753" fill="none" stroke="#000" stroke-linecap="round" stroke-width="38.242"/>
                             </g>
                         </svg>
-                        <div class="v1"></div>
-                        <h3 id="step-5-description" class="wf-elem-name">Ideation</h3>
-                        <div class="divider"></div>
-                        <p class="wf-elem-desc">Finding ways to bridge geospatial information and stakeholders’ needs and increase awareness among all the parties</p>
+                        <div class="cell-arrow"></div>
+                        <p class="cell-description">Finding ways to bridge geospatial information and stakeholders’ needs and increase awareness among all the parties</p>
                     </div>
-                    <div id="workflow-step-6" class="wf-elem">
-                        <h3 id="step-6-description" class="wf-elem-name">Proposal</h3>
-                        <div class="divider"></div>
-                        <p class="wf-elem-desc">Designing mutually beneficial interventions to tackle wicked problems and achieve wider consensus</p>
-                        <div class="v1"></div>
-                        <svg id="step-1-icon" class="workflow-icons"
-                                height="70px"
-                                viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="10" cy="10" r="8" fill="white" stroke-width="1.5px" stroke="hsl(204, 100%, 50%)"></circle>
-                            <g transform="matrix(0.8,0,0,0.8,3.5,3.5)">
+                    <div class="cell">
+                        <svg class="connector" width="100" height="100" viewBox="0 0 105 105">
+                            <g transform="matrix(1,0,0,1,2.5,2.5)">
+                                <polyline points="80, 100 20, 100 0, 50" stroke="gray" fill="transparent" stroke-width="5"/>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="cell">
+                        <h3 class="cell-title">Proposal</h3>
+                        <div class="cell-arrow"></div>
+                        <p class="cell-description">Designing mutually beneficial interventions to tackle wicked problems and achieve wider consensus</p>
+                        <svg class="proposal-icon" width="100" height="100" viewBox="0 0 105 105">
+                            <g class="hex-border" transform="matrix(1,0,0,1,2.5,2.5)">
+                                <polygon points="0, 50 20, 0 80, 0 100, 50 80, 100 20, 100 0, 50" stroke="green" fill="transparent" stroke-width="5"/>
+                            </g>
+                            <g transform="matrix(3,0,0,3,28,28)">
                                 <path d="M5.68 5.792 7.345 7.75 5.681 9.708a2.75 2.75 0 1 1 0-3.916ZM8 6.978 6.416 5.113l-.014-.015a3.75 3.75 0 1 0 0 5.304l.014-.015L8 8.522l1.584 1.865.014.015a3.75 3.75 0 1 0 0-5.304l-.014.015L8 6.978Zm.656.772 1.663-1.958a2.75 2.75 0 1 1 0 3.916L8.656 7.75Z"/>
                             </g>
                         </svg>
+                    </div>
+                    <div class="cell">
+                        <svg class="connector" width="100" height="100" viewBox="0 0 105 105">
+                            <g transform="matrix(1,0,0,1,2.5,2.5)">
+                                <polyline points="80, 100 20, 100" stroke="gray" fill="transparent" stroke-width="5"/>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+            </section>
+            <section id="projects" class="projects-section section grid bg-second fs-400 ff-sans">
+                <h2 class="section-titles txt-second">PROJECTS</h2>
+                <div id="projects-container" class="projects-cards-container container flex">
+                    <div class="project-card container flex">
+                        <a href="./projects/">
+                            <div class="project-cards-content flex">
+                                <h3 class="projects-titles txt-dark fs-400 ff-sans">Eco-tourism in Masai Mara</h3>
+                                <p class="projects-snippet txt-dark fs-300 ff-sans">Improving water security in Masai Mara through Eco-tourism</p>
+                                <!-- <button class="more-button txt-second bg-accent fs-200 ff-sans">MORE</button> -->
+                                <svg class="project-card-arrow" xmlns="http://www.w3.org/2000/svg" width="50" height="50" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                    <path d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                                </svg>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="project-card container flex">
+                        <div class="project-cards-content flex">
+                            <h3 class="projects-titles txt-dark fs-400 ff-sans">Project title</h3>
+                            <p class="projects-snippet txt-dark fs-300 ff-sans">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                            <!-- <button class="more-button txt-second bg-accent fs-200 ff-sans">MORE</button> -->
+                            <svg class="project-card-arrow" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="project-card container flex">
+                        <div class="project-cards-content flex">
+                            <h3 class="projects-titles txt-dark fs-400 ff-sans">Project title</h3>
+                            <p class="projects-snippet txt-dark fs-300 ff-sans">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                            <!-- <button class="more-button txt-second bg-accent fs-200 ff-sans">MORE</button> -->
+                            <svg class="project-card-arrow" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                            </svg>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -312,6 +410,25 @@
                         <h2 class="txt-second">CONTACT US</h2>
                         <h3 class="txt-second">SEWoB</h3>
                         <a class="mailto fs-400" href="mailto: sewob.nl@gmail.com">sewob.nl@gmail.com</a>
+                    </div>
+                    <div class="nav-2">
+                        <ul class="nav-list">
+                            <li>
+                                <a href="#approach" id="approach-nav-link" class="navlinks txt-second fs-200 ff-sans uppercase">APPROACH</a>
+                            </li>
+                            <li>
+                                <a href="#projects" id="project-nav-link" class="navlinks txt-second fs-200 ff-sans uppercase">PROJECTS</a>
+                            </li>
+                            <li>
+                                <a href="#blog" id="blog-nav-link" class="navlinks txt-second fs-200 ff-sans uppercase">BLOG</a>
+                            </li>
+                            <li>
+                                <a href="./about/" id="about-nav-link" class="navlinks txt-second fs-200 ff-sans">ABOUT</a>
+                            </li>
+                            <li>
+                                <a href="#footer" id="contact-nav-link" class="navlinks txt-second fs-200 ff-sans uppercase">CONTACT</a>
+                            </li>
+                        </ul>
                     </div>
                     <div class="logo-container flex">
                         <div id="logo">
@@ -371,7 +488,7 @@
                 </div>
                 <div class="h-divider"></div>
                 <div class="footer-bottom container flex">
-                    <p id="copyright" class="text txt-second fs-300 ff-sans">Copyright © SEWoB 2022. All Rights Reserved.</p>
+                    <p id="copyright" class="text txt-second fs-200 ff-sans">Copyright © SEWoB 2022. All Rights Reserved.</p>
                     <a href="#" id="ts-and-cs" class="footer-links txt-second fs-200 ff-sans">Terms and Conditions</a>
                     <a href="#" id="privacy" class="footer-links txt-second fs-200 ff-sans">Privacy and Cookie Policy</a>
                     <a href="#" id="cookies" class="footer-links txt-second fs-200 ff-sans">Cookie Settings</a>
