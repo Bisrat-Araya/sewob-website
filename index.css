@@ -266,6 +266,16 @@ a {
     font-size: var(--fs-200);
 }
 
+.references {
+    width: 85%;
+    align-self: center;
+}
+
+.references a {
+    text-decoration: none;
+    color: hsl(var(--clr-dark), .7);
+}
+
 /* Header */
 
 .header {
@@ -447,16 +457,16 @@ a {
 }
 
 #intro-slide-1 {
-    background-image: url("./images/network-3607641.jpg");
+    background-image: url("./images/earth_network.jpg");
     /* background-size: 20px 20px; */
 }
 
 #intro-slide-2 {
-    background-image: url("./images/team-6954229.jpg");
+    background-image: url("./images/team_2.jpg");
 }
 
 #intro-slide-3 {
-    background-image: url("./images/light-bulbs-3489395.jpg");
+    background-image: url("./images/light_bulbs.jpg");
 }
 
 .prev, .next {
@@ -867,7 +877,7 @@ a {
 
     .center-container > video {
         position: relative;
-        right: 50%;
+        right: 25%;
         max-width: 200%;
         width: 100%;
         height: 100%;
@@ -879,7 +889,6 @@ a {
         grid-area: dupGlobe;
         display: flex;
         flex-direction: column;
-        /* justify-content: center; */
         margin: 0;
         height: 100%;
         width: 200%;
@@ -931,12 +940,14 @@ a {
     /* grid-template-rows: 1fr 1fr; */
     gap: 0;
     margin: 0;
+    /* margin-right: 50px; */
     padding: 175px 0 350px 0;
     /* padding-right: 400px; */
-    width: 90%;
+    width: fit-content;
     height: fit-content;
     justify-self: center;
-    /* border: 1px solid red; */
+    align-self: center;
+    border: 1px solid red;
     backdrop-filter: blur(5px);
     --cell-width: 130px;
     --cell-height: 120px;
@@ -955,13 +966,13 @@ a {
 }
 
 .cell:nth-child(4n+2) svg .hex-border * {
-    stroke: hsl(203, 90%, 35%);
-    fill: white;
+    stroke: hsl( var(--clr-primary));
+    fill: hsl(var(--clr-secondary));
 }
 
 .cell:nth-child(4n+4) svg .hex-border * {
     stroke: hsl(24, 100%, 50%);
-    fill: white;
+    fill: hsl(var(--clr-secondary));
 }
 
 
@@ -1084,7 +1095,7 @@ a {
         display: grid;
         grid-template-rows: repeat(6, 1fr);
         grid-template-columns: none;
-        padding: 100px 400px 100px 300px;
+        padding: 100px 45% 100px 35%;
         gap: 80px;
         /* padding-right: 400px; */
         width: fit-content;
@@ -1140,7 +1151,7 @@ a {
 
     .cell:nth-child(4n+2) .cell-description {
         position: absolute;
-        left: 220%;
+        left: 200%;
         --cell-desc-height: 100px;
         width: 200px;
         height: var(--cell-desc-height);
@@ -1190,6 +1201,72 @@ a {
     
 }
 
+@media (max-width: 720px) {
+
+    .approach-container {
+        gap: 180px;
+        padding: 100px 40% 200px 20%;
+        background-color: hsl(var(--clr-secondary), 0.7);
+    }
+
+    .cell:nth-child(4n+2) {
+        transform: translate(-25%, 0);
+    }
+    
+    .cell:nth-child(4n) .cell-title {
+        position: absolute;
+        top: -30%;
+        left: -100%;
+        height: fit-content;
+        width: 200px;
+        align-content: center;
+        text-align: right;
+        /* border: 1px solid red; */
+    }
+
+    .cell:nth-child(4n+2) .cell-title {
+        position: absolute;
+        top: -30%;
+        left: 0%;
+        height: fit-content;
+        width: 200px;
+        text-align: left;
+    }
+
+    .cell:nth-child(4n+2) .cell-description {
+        position: absolute;
+        left: 0;
+        width: 200px;
+        height: fit-content;
+        top: 90%;
+        text-align: left;
+        /* border: 1px solid red; */
+    }
+
+    .cell:nth-child(4n+4) .cell-description {
+        position: absolute;
+        left: -100%;
+        --cell-desc-height: 150px;
+        width: 200px;
+        height: fit-content;
+        top: 90%;
+        text-align: right;
+        /* border: 1px solid red; */
+    }
+
+    .cell-description::after {
+        content: "";
+        display: block;
+        width: 200px;
+        height: 10px;
+        border-bottom: 1px solid hsl(var(--clr-dark), .4);
+    }
+
+    .cell-arrow {
+        display: none;
+    }
+}
+
 /* projects section */
 
 .projects-section {
@@ -1231,7 +1308,7 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    background-image: url("./images/pexels-follow-alice-667200.jpg");
+    /* background-image: url("./images/pexels-follow-alice-667200.jpg"); */
     background-size: cover;
     background-repeat: no-repeat;
     width: 300px;
@@ -1294,7 +1371,6 @@ a {
 @media (max-width: 45em) {
     .projects-section {
         height: fit-content;
-        padding: 50px 0;
     }
     .projects-cards-container {
         /* display: flex; */
@@ -1305,6 +1381,7 @@ a {
         justify-content: space-between;
         height: fit-content;
         width: 95%;
+        padding: 50px 0;
     }
 }
 

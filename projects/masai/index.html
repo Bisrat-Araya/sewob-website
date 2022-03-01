@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../index.css">
+    <title>SEWoB Projects</title>
+</head>
+<body>
+    <div class="page-container flex bg-second">
+        <header id="header" class="header bg-primary flex">
+            <div id="menu" class="ham-menu container hidden" onclick="menuFunction(this)">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+            <a id="logo" href="../../">
+                <!-- <img id="logo-img" class="img" src="Sewob_logo-02.png" style="height:100px; width:100px" alt="SeWoB Logo"> -->
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                    width="100px" height="100px" viewBox="0 0 1168.000000 1139.000000"
+                    preserveAspectRatio="xMidYMid meet">
+                    <g transform="translate(0.000000,1139.000000) scale(0.100000,-0.100000)"
+                    fill="#FFF" stroke="none">
+                    <path d="M5490 9016 l-2875 -31 -3 -3267 -2 -3268 2085 0 c1383 0 2085 3 2085
+                    10 0 6 18 10 39 10 29 0 41 5 45 18 3 9 64 220 136 467 72 248 132 453 133
+                    457 1 4 58 -185 126 -420 69 -235 131 -448 139 -475 l14 -47 176 2 176 3 198
+                    695 c109 382 198 701 198 708 0 10 -40 12 -182 10 l-182 -3 -110 -457 c-60
+                    -252 -112 -455 -114 -453 -3 3 -60 208 -127 457 l-121 453 -185 3 -186 2 -123
+                    -462 c-67 -255 -123 -464 -124 -465 -1 -1 -51 207 -111 462 l-110 465 -187 0
+                    c-136 0 -188 -3 -188 -12 0 -10 266 -956 277 -985 4 -10 -335 -13 -1676 -13
+                    l-1681 0 0 2839 0 2839 83 6 c45 3 1065 14 2267 26 1202 11 2402 24 2668 27
+                    l482 6 0 -1531 0 -1532 -350 0 -350 0 0 -710 0 -710 500 0 500 0 0 145 0 145
+                    -330 0 -330 0 0 150 0 150 295 0 295 0 0 135 0 135 -295 0 -295 0 0 135 0 135
+                    395 0 395 0 0 1890 0 1890 -297 -1 c-164 -1 -1592 -16 -3173 -33z"/>
+                    <path d="M6565 5572 c-203 -53 -329 -178 -354 -354 -5 -37 -6 -95 -1 -131 22
+                    -178 126 -272 400 -362 144 -47 179 -65 218 -110 40 -44 43 -96 9 -146 -36
+                    -55 -78 -70 -178 -67 -73 3 -94 8 -151 36 -36 19 -81 49 -99 68 -18 19 -38 34
+                    -44 34 -16 0 -225 -215 -225 -231 1 -36 147 -130 267 -171 77 -27 106 -31 228
+                    -36 110 -3 154 -1 205 12 213 54 342 185 371 375 26 173 -29 305 -167 396 -31
+                    21 -118 60 -193 87 -75 27 -156 56 -181 65 -25 9 -60 31 -77 49 -44 43 -46 97
+                    -6 145 36 43 79 59 157 59 83 0 160 -28 219 -80 l44 -39 112 119 c62 66 110
+                    124 106 129 -17 28 -165 113 -238 137 -109 36 -312 44 -422 16z"/>
+                    <path d="M9160 3181 l0 -711 348 0 c381 0 435 6 547 58 104 49 179 133 205
+                    231 16 62 14 188 -4 240 -33 92 -121 176 -211 201 l-46 13 53 29 c71 39 103
+                    72 135 136 22 45 27 69 27 136 1 98 -15 156 -58 216 -41 56 -96 95 -183 128
+                    l-68 27 -372 3 -373 3 0 -710z m621 418 c73 -25 108 -87 90 -156 -23 -86 -76
+                    -112 -247 -120 l-124 -6 0 153 0 153 124 -7 c68 -3 139 -11 157 -17z m41 -555
+                    c72 -24 93 -53 93 -131 0 -62 -2 -66 -37 -98 -48 -44 -87 -54 -245 -62 l-133
+                    -6 0 163 0 163 138 -7 c82 -3 158 -13 184 -22z"/>
+                    <path d="M8422 3485 c-85 -24 -162 -66 -223 -123 -115 -106 -162 -216 -163
+                    -382 0 -81 5 -121 21 -175 42 -135 134 -244 258 -306 90 -44 157 -59 275 -59
+                    60 0 128 6 160 15 287 76 449 347 386 646 -36 168 -152 300 -323 366 -59 23
+                    -86 27 -203 30 -97 2 -150 -1 -188 -12z m266 -284 c144 -74 177 -285 64 -404
+                    -64 -68 -180 -89 -261 -47 -74 37 -131 136 -131 225 0 89 55 186 129 225 49
+                    26 149 27 199 1z"/>
+                    </g>
+                </svg>
+            </a>
+            <script>
+                function menuFunction(element) {
+                    element.classList.toggle("change");
+                    element.parentElement.classList.toggle("change-header");
+                }
+            </script>
+            <nav>
+                <ul class="navbar flex">
+                    <li>
+                        <div class="navlink-container">
+                            <a href="../../#approach" id="approach-nav-link" class="navlinks txt-second fs-200 ff-sans uppercase">
+                                APPROACH
+                                <!-- <span class="down-arrow">&#9013</span> -->
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="navlink-container">
+                            <a href="../../#projects" id="project-nav-link" class="navlinks txt-second fs-200 ff-sans uppercase">
+                                PROJECTS
+                                <!-- <span class="down-arrow">&#9013</span> -->
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="navlink-container">
+                            <a href="../../#blog" id="blog-nav-link" class="navlinks txt-second fs-200 ff-sans uppercase">
+                                BLOG
+                                <!-- <span class="down-arrow">&#9013</span> -->
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="navlink-container">
+                            <a href="../../#about" id="about-nav-link" class="navlinks txt-second fs-200 ff-sans">
+                                ABOUT
+                                <!-- <span class="down-arrow">&#9013</span> -->
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="navlink-container">
+                            <a href="../../#footer" id="contact-nav-link" class="navlinks txt-second fs-200 ff-sans uppercase">
+                                CONTACT
+                                <!-- <span class="down-arrow">&#9013</span> -->
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <article class="article flex">
+            <img src="./pexels-follow-alice-667200.jpg" alt="Maasai mara people" class="article-img img">
+            <div class="article-text flex">
+                <h2 class="article-title txt-dark fs-600">Eco-tourism to improve water security in the Masai Mara</h2>
+                <div class="article-details txt-dark fs-200">
+                    <p><span>Where:</span> Masai Mara, Kenya</p>
+                    <p><span>When:</span> 2020</p>
+                    <p><span>Team:</span> Michael David, Jan Eggenkamp, Chiara Ferrario, Kisanet Molla, Fauzan Muzakki</p>
+                </div>
+                <div class="article-content flex">
+                    <p>The project focuses on water availability during the dry season and explores the opportunities for collaboration between local farmers and tourism.  This is because the highest peak of tourism coincides with the driest months.</p>
+                    <img src="./masai_mara6.jpg" alt="">
+                    <p>Through stakeholder analysis a better understanding of the existing relationships and respective needs and requirements has been acquired. This was done considering equity, equality and empowerment of the stakeholders within the study area; this analysis led to design a more suitable intervention.</p>
+                    <p>Because of existing projects in using constructed wetlands this has been further looked into. The wastewater of the lodges gets reused using artificial wetlands. Part of the reused water goes to the farmers, who can grow crops. The location of the wetland has been analyzed using a multi criteria evaluation.</p>
+                    <img src="./masai_mara7.jpg" alt="">
+                    <p>The ecological, social and economic benefits have been investigated. Three alternative futures have been analyzed to understand how the number of tourists can affect the feasibility of this proposed intervention. The intervention has opportunities, but because of the many assumptions, the uncertainties are large.</p>
+                </div>
+                <p class="keywords txt-dark">
+                    <em>Keywords: Mara River, Masai Mara, Ecotourism, Water Scarcity, Kenya, Drought, Wetland</em>
+                </p>
+            </div>
+        </article>
+    </div>
+</body>
+</html>
