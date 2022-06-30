@@ -28,16 +28,9 @@ class Point {
 
 // points
 let numPoints = 600;
-if (canvas.width < 1200) {
-    numPoints = 400;
-}
-
-if (canvas.width < 600) {
-    numPoints = 150;
-}
 
 let points = [];
-function init() {
+function init(numPoints) {
     points = [];
     for (let i = 0; i < numPoints; i++) {
         points.push(
@@ -56,12 +49,20 @@ function init() {
 window.addEventListener('resize', function() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    init();
+    if (window.innerWidth < 1200) {
+        numPoints = 400;
+    }
+    
+    if (window.innerWidth < 600) {
+        numPoints = 150;
+    }
+    init(numPoints);
 })
 
 // animate
 const connectRadius = 70;
 function animate() {
+
     requestAnimationFrame(animate);
     c.clearRect(0, 0, innerWidth, innerHeight);
     for (let i = 0; i < points.length; i++) {
@@ -82,5 +83,5 @@ function animate() {
     }
 }
 
-init();
+init(numPoints);
 animate();
